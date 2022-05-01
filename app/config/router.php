@@ -12,8 +12,20 @@ switch ($request) {
         require __DIR__ . '/../../views/about.php';
         exit();
         break;
+    case '/admin':
+        require __DIR__ . '/../../views/admin/admin_panel.php';
+        exit();
+        break;
+    case '/admin/loginprocess':
+        require __DIR__ . '/../../views/admin/admin_login.process.php';
+        exit();
+        break;
     case '/admin/login':
         require __DIR__ . '/../../views/admin/admin.login.php';
+        exit();
+        break;
+    case '/logout':
+        require __DIR__ . '/../config/logout.php';
         exit();
         break;
     default:

@@ -1,14 +1,12 @@
 <html>
+
 <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicon/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/hsstyle.css">
+    <?php include __DIR__ . '/inc/style.php'; ?>
     <title>Home | P R M S</title>
 
 </head>
+
 <body>
     <div class="navigation-bar">
         <img src="./assets/images/land.png" alt="logo">
@@ -48,12 +46,7 @@
             <p>- Place For All Your Medical Information!</p>
         </div>
     </div>
-
-    <div class="footer">
-        <a href="#">
-            <p> Designed By Shahriar Khan</p>
-        </a>
-    </div>
+    <?php include __DIR__ . '/layouts/footer.php'; ?>
 </body>
 
 </html>
