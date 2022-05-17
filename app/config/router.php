@@ -11,6 +11,13 @@ switch ($request) {
     case '/about':
         require __DIR__ . '/../../views/about.php';
         exit();
+        break; case '':
+            require __DIR__ . '/../../views/welcome.php';
+            exit();
+            break; 
+    case '/patient':
+        require __DIR__ . '/../../views/patient/patient_info.php';
+        exit();
         break;
     case '/admin':
         require __DIR__ . '/../../views/admin/admin_panel.php';
