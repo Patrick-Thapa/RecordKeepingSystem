@@ -13,29 +13,29 @@
         <?php
         session_start();
         if (isset($_SESSION["userID"]) && $_SESSION["uc"] == "1") {
-            echo "<a href='logout.php'>Logout</a>
-      <a href='pdashboard.php'>Profile </a>
-      <a href='index.php'> Home</a>";
+            echo "<a href='/logout'>Logout</a>
+      <a href='/patient'>Profile </a>
+      <a href='/'> Home</a>";
         } elseif (isset($_SESSION["userID"]) && $_SESSION["uc"] == "2") {
             echo "<a href='logout.php'>Logout</a>
       <a href='ddashboard.php'>Profile </a>
-      <a href='index.php'> Home</a>";
+      <a href='/'> Home</a>";
         } elseif (isset($_SESSION["userID"]) && $_SESSION["uc"] == "3") {
             echo "<a href='logout.php'>Logout</a>
       <a href='sdashboard.php'>Profile </a>
-      <a href='index.php'> Home</a>";
+      <a href='/'> Home</a>";
         } else {
             echo " <div class='dropdown'>
     <button class='dropbtn'> Login <i class='fa fa-caret-down'></i>
     </button>
     <div class='dropdown-content'>
-      <a href='patient.login.php'>Patient Login</a>
+      <a href='/patient/login'>Patient Login</a>
       <a href='doctor.login.php'>Doctor Login</a>
       <a href='staff.login.php'>Staff Login</a>
     </div>
   </div>
-  <a href='about.php'>About </a>
-  <a href='index.php'> Home</a>";
+  <a href='/about'>About </a>
+  <a href='/'> Home</a>";
         }
         ?>
     </div>

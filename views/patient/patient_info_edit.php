@@ -1,22 +1,24 @@
 <?php
   session_start();
   if(!$_SESSION["userID"])
-  header("Location:patient.login.php")
+  header("Location: /patient.login.php")
  ?>
 
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="./assets/css/hsstyle.css">
+    <?php include __DIR__ . '/inc/style.php'; ?>
+    <title>Edit | P R M S</title>
      <link rel="apple-touch-icon" sizes="180x180" href="Resource/favicon/apple-touch-icon.png">
      <link rel="icon" type="image/png" sizes="32x32" href="Resource/favicon/favicon-32x32.png">
      <link rel="icon" type="image/png" sizes="16x16" href="Resource/favicon/favicon-16x16.png">
-     <link rel="manifest" href="Resource/favicon/site.webmanifest">
-     <link rel="stylesheet" type="text/css" href="css/pedit_style.css">
-     <title>Edit</title>
+     <link rel="manifest" href="./assets/favicon/site.webmanifest">
+     <link rel="stylesheet" type="text/css" href="./assets/css/pedit_style.css">
    </head>
    <body>
-     <div class="top_img"><img src="Resource/land2.png"></div>
+     <div class="top_img"><img src="./assets/images/land2.png"></div>
      <div class="navigation-bar" style="text-align: center">
        <a href="pdashboard.php" >Home</a>
        <a href="precords.php">Records </a>
@@ -44,7 +46,6 @@
      </div>
 
      <?php
-      require "connection.php";
       if(isset($_POST["info-submit"]))
       {
         if (!empty($_POST["ads"]) && !empty($_POST["ctc"]) && !empty($_POST["mail"])) {

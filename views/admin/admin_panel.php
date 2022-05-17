@@ -2,7 +2,7 @@
 session_start();
 if (!$_SESSION["userID"]) {
   header("Location: /admin/login");
-}
+} 
 ?>
 <!DOCTYPE html>
 <html>

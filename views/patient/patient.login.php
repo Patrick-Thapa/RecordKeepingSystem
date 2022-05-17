@@ -1,27 +1,24 @@
 <?php
  session_start();
  if (isset($_SESSION["userID"]) && $_SESSION["uc"]=="1") {
-   header("Location:pdashboard.php");
+   header("Location: /patient");
  }
  ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="Resource/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Resource/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Resource/favicon/favicon-16x16.png">
-  <link rel="manifest" href="Resource/favicon/site.webmanifest">
-  <link rel="stylesheet" type="text/css" href="css/login_style.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/hsstyle.css">
+  <?php include __DIR__ . '../../inc/style.php'; ?>
+  <title>Patient Login | P R M S</title>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/login_style.css">
   <title> Login </title>
 </head>
 
-<body style="background-image: url(Resource/H.jpg); background-size: cover;">
-
-
+<body style="background-image: url('../../assets/images/H.jpg'); background-size: cover;">
  <div class="login_box">
    <form class="login_form" action="patient_login.process.php" method="post">
-     <img src="Resource/logo.ECE.png">
-     <h2>Sign In</h2>
+     <img src="../../assets/images/logo.ECE.png">
+     <h2>Patient Login</h2>
      <?php
       if(isset($_GET["error"]))
       {
@@ -41,20 +38,14 @@
            }
       }
       ?>
-
      <label for="userID">User ID</label>
      <input type="text" name="userID" placeholder="Enter your SSN or NID number or Passport Number">
      <label for="pass">Password</label>
      <input type="password" name="pass" placeholder="Enter your Password">
      <input type="submit" name="login-submit" value="Login">
    </form>
-
-
    </div>
  </div>
-
-
  </div>
-
-
+ 
 </body>

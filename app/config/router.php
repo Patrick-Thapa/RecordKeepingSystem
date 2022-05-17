@@ -16,7 +16,15 @@ switch ($request) {
             exit();
             break; 
     case '/patient':
-        require __DIR__ . '/../../views/patient/patient_info.php';
+        require __DIR__ . '/../../views/patient/pdashboard.php';
+        exit();
+        break;
+    case '/patient/loginprocess':
+        require __DIR__ . '/../../views/patient/patient_login.process.php';
+        exit();
+        break;
+    case '/patient/login':
+        require __DIR__ . '/../../views/patient/patient.login.php';
         exit();
         break;
     case '/admin':
