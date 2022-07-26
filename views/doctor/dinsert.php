@@ -2,60 +2,27 @@
  session_start();
  if(!$_SESSION["userID"])
  {
-   header("Location:doctor.login.php");
+   header("Location: /doctor/login");
  }
  ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="Resource/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Resource/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Resource/favicon/favicon-16x16.png">
-  <link rel="manifest" href="Resource/favicon/site.webmanifest">
-  <link rel="stylesheet" type="text/css" href="css/dinsert_style.css">
-
+<?php include __DIR__ . '/../inc/style.php'; ?>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/dinsert_style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" />
-<style>
-	.navigation-bar a{
-		font-size: 16px;
-	}
-  
+  <style>
+    .navigation-bar a{
+      font-size: 16px;
+    }
   </style>
-  <title> Insert </title>
+  <title> Insert | P R M S</title>
 </head>
 <body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
-
-  <div class="top_img"><img src="Resource/land2.png"></div>
-  <div class="navigation-bar" style="text-align: center">
-    <a href="ddashboard.php" >Home</a>
-    <a href="drecords.php">Records </a>
-    <a href="dsearch.php">Search</a>
-    <a href="dinsert.php">Insert</a>
-    <a class='logout' href="logout.php">Logout</a>
-  </div>
-
-  <script>
-  jQuery(function($) {
-      $("#date").datepicker();
-  });
-  </script>
-
-  <script>
-  jQuery(function($) {
-      $("#time").timepicker({
-        timeFormat: "hh:mm tt"
-      });
-  });
-</script>
-
-
-
   <?php
+  include('doctor.nav.php');
   if (isset($_GET["error"]))
    {
     if($_GET["error"]=="wronguser")
@@ -180,7 +147,23 @@
     }
  ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
 
+<script>
+  jQuery(function($) {
+      $("#date").datepicker();
+  });
+  </script>
+
+  <script>
+  jQuery(function($) {
+      $("#time").timepicker({
+        timeFormat: "hh:mm tt"
+      });
+  });
+</script>
 
 </body>
 </html>

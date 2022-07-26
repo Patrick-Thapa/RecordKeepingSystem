@@ -9,9 +9,9 @@
 
   if(isset($_POST["input-submit"]))
   {
-    $pssn=$_POST["pssn"];
+    $dssn=$_POST["dssn"];
 
-    $sql="DELETE FROM patient WHERE SSN = '$pssn'";
+    $sql="DELETE FROM doctor WHERE SSN = '$dssn'";
 
     $is_deleted=mysqli_query($conn,$sql);
 
@@ -26,8 +26,5 @@
   else {
     header("Location:adelete.php");
   }
-
-
-
 
  ?>

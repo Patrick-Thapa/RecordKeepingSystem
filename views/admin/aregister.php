@@ -2,36 +2,30 @@
  session_start();
  if(!$_SESSION["userID"])
  {
-   header("Location:admin.login.php");
+   header("Location: /admin");
  }
  ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="Resource/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Resource/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Resource/favicon/favicon-16x16.png">
-  <link rel="manifest" href="Resource/favicon/site.webmanifest">
-  <link rel="stylesheet" type="text/css" href="css/aregister_style.css">
+  <?php include __DIR__ . '/../inc/style.php'; ?>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/aregister_style.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" />
 
   <title> Register </title>
 </head>
+
 <body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
 
-  <div class="top_img"><img src="Resource/land2.png"></div>
-  <div class="navigation-bar" style="text-align: center">
-    <a href="admin_panel.php" >Home</a>
-    <a href="aregister.php">Register</a>
-    <a href="adelete.php">Delete</a>
-    <a class='logout' href="logout.php">Logout</a>
-  </div>
+  <div class="top_img"><img src="../../assets/images/land2.png"></div>
+  <?php include('admin.nav.php') ?>
+
 
   <script>
   jQuery(function($) {
@@ -62,7 +56,7 @@
   elseif(!isset($_POST["choice-submit"])){
       echo "<div class='welcome'><h2 class='welcome_mssg'> Choose a Category</h2></div>
       <div class='choice_form_box'>
-        <form class='choice_form' action='aregister.php' method='post'>
+        <form class='choice_form' action='/admin/register' method='post'>
           <label for='ch'>Patient</label>
           <input type='checkbox' name='ch' value='1'><br>
           <label for='ch'>Doctor</label>
@@ -80,7 +74,7 @@
       if ($_POST["ch"]=="1") {
         echo "<div class='welcome'><h2 class='welcome_mssg'> Patient Registration Form</h2></div>
   <div class='input-form-box'>
-    <form class='input-form' action='aregister_p.php' method='post'>
+    <form class='input-form' action='/admin/register/patient' method='post'>
       <label for='pssn'>Patient ID</label>
       <input type='text' name='pssn' placeholder='Enter a valid Patient ID' required><br>
 
@@ -225,8 +219,6 @@
 
     }
  ?>
-
-
 
 </body>
 </html>

@@ -1,26 +1,23 @@
 <?php
  session_start();
  if (isset($_SESSION["userID"]) && $_SESSION["uc"]=="2") {
-   header("Location:ddashboard.php");
+   header("Location: doctor/dashboard");
  }
  ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="Resource/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Resource/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Resource/favicon/favicon-16x16.png">
-  <link rel="manifest" href="Resource/favicon/site.webmanifest">
-  <link rel="stylesheet" type="text/css" href="css/dlogin_style.css">
-  <title> Login </title>
+  <?php include __DIR__ . '/../inc/style.php'; ?>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/dlogin_style.css">
+  <title>Doctor Login | P R M S </title>
 </head>
 
-<body style="background-image: url(Resource/G.jpg); background-size: cover;">
+<body style="background-image: url(../../assets/images/G.jpg); background-size: cover;">
 
 
  <div class="login_box">
-   <form class="login_form" action="doctor_login.process.php" method="post">
-     <img src="Resource/logo.black.png">
+   <form class="login_form" action="/doctor/login/process" method="post">
+     <img src="../../assets/images/logo.black.png">
      <h2>Sign In</h2>
      <?php
       if(isset($_GET["error"]))

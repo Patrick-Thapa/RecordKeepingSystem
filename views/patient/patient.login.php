@@ -7,14 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./assets/css/hsstyle.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/hsstyle.css">
   <?php include __DIR__ . '../../inc/style.php'; ?>
   <title>Patient Login | P R M S</title>
   <link rel="stylesheet" type="text/css" href="../../assets/css/login_style.css">
-  <title> Login </title>
 </head>
 
-<body style="background-image: url('../../assets/images/H.jpg'); background-size: cover;">
+<body>
  <div class="login_box">
    <form class="login_form" action="patient_login.process.php" method="post">
      <img src="../../assets/images/logo.ECE.png">
@@ -47,5 +46,5 @@
    </div>
  </div>
  </div>
- 
+
 </body>
