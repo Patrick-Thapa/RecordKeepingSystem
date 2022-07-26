@@ -38,7 +38,7 @@
   elseif(!isset($_POST["choice-submit"])){
       echo "<div class='welcome'><h2 class='welcome_mssg'> Choose a Category</h2></div>
       <div class='choice_form_box'>
-        <form class='choice_form' action='dinsert.php' method='post'>
+        <form class='choice_form' action='/doctor/insert' method='post'>
           <label for='ch'>Consultation</label>
           <input type='checkbox' name='ch' value='1'><br>
           <label for='ch'>Surgery</label>
@@ -54,7 +54,7 @@
       if ($_POST["ch"]=="1") {
         echo "<div class='welcome'><h2 class='welcome_mssg'> Consultation Form</h2></div>
   <div class='input-form-box'>
-    <form class='input-form' action='dinsert_con.php' method='post'>
+    <form class='input-form' action='/doctor/insert/con' method='post'>
       <label for='pssn'>Patient ID</label>
       <input type='text' name='pssn' placeholder='Enter a valid Patient ID' required><br>
 
@@ -89,7 +89,7 @@
       elseif ($_POST["ch"]=="2") {
           echo "  <div class='welcome'><h2 class='welcome_mssg'> Surgery Form</h2></div>
   <div class='input-form-box'>
-    <form class='input-form' action='dinsert_sur.php' method='post'>
+    <form class='input-form' action='/doctor/insert/sur' method='post'>
       <label for='pssn'>Patient ID</label>
       <input type='text' name='pssn' placeholder='Enter a valid Patient ID' required><br>
 
@@ -117,7 +117,7 @@
       elseif ($_POST["ch"]=="3") {
         echo "  <div class='welcome'><h2 class='welcome_mssg'> Diagnosis Form</h2></div>
   <div class='input-form-box'>
-    <form class='input-form' action='dinsert_diag.php' method='post'>
+    <form class='input-form' action='/doctor/insert/diag' method='post'>
       <label for='pssn'>Patient ID</label>
       <input type='text' name='pssn' placeholder='Enter a valid Patient ID' required><br>
 
