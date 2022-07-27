@@ -12,10 +12,11 @@ switch ($request) {
     case '/about':
         require __DIR__ . '/../../views/about.php';
         exit();
-        break; case '':
-            require __DIR__ . '/../../views/welcome.php';
-            exit();
-            break; 
+        break;
+    case '':
+        require __DIR__ . '/../../views/welcome.php';
+        exit();
+        break;
     case '/patient':
         require __DIR__ . '/../../views/patient/pdashboard.php';
         exit();
@@ -39,7 +40,7 @@ switch ($request) {
     case '/admin/login':
         require __DIR__ . '/../../views/admin/admin.login.php';
         exit();
-    break;
+        break;
     case '/admin/login?error=wrongpass':
         require __DIR__ . '/../../views/admin/admin.login.php';
         exit();
@@ -70,7 +71,7 @@ switch ($request) {
     case '/admin/delete?error=wronguser':
         require __DIR__ . '/../../views/admin/adelete.php';
         exit();
-        break;   
+        break;
     case '/admin/register/patient':
         require __DIR__ . '/../../views/admin/aregister_p.php';
         exit();
@@ -98,10 +99,12 @@ switch ($request) {
     case '/doctor/insert':
         require __DIR__ . '/../../views/doctor/dinsert.php';
         break;
+    case 'doctor/edit':
+        require __DIR__ . '/../../views/doctor/doctor_info_edit.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/../../views/errors/404.php';
         exit();
         break;
-
 }
