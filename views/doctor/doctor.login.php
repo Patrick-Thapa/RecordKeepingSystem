@@ -14,7 +14,6 @@
 
 <body style="background-image: url(../../assets/images/G.jpg); background-size: cover;">
 
-
  <div class="login_box">
    <form class="login_form" action="/doctor/login/process" method="post">
      <img src="../../assets/images/logo.black.png">
