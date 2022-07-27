@@ -9,7 +9,7 @@
 <html>
 <head>
   <?php include __DIR__ . '/../inc/style.php'; ?>
-  <link rel="stylesheet" type="text/css" href="./../assets/css/ddash_style.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/ddash_style.css">
   <title>Dashboard | P R M S </title>
   <style>
 	.navigation-bar a{
@@ -76,10 +76,10 @@
                 <tr><th>E-MAIL</th>
                    <td>$mail</td></tr>
               </table>
-              <a href='doctor_info_edit.php'>Edit</a>
+              <a href='/doctor/edit'>Edit</a>
             </div>
           </div>
-          <div class='res_div'><a class='res' href='d_res_pass.php'>Reset Password</a></div>
+          <div class='res_div'><a class='res' href='/doctor/resetpassword'>Reset Password</a></div>
         <div class='footer'></div>
         ";
       }

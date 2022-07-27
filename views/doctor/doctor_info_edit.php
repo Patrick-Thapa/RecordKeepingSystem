@@ -7,51 +7,32 @@
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
-     <meta charset="utf-8">
-     <link rel="apple-touch-icon" sizes="180x180" href="Resource/favicon/apple-touch-icon.png">
-     <link rel="icon" type="image/png" sizes="32x32" href="Resource/favicon/favicon-32x32.png">
-     <link rel="icon" type="image/png" sizes="16x16" href="Resource/favicon/favicon-16x16.png">
-     <link rel="manifest" href="Resource/favicon/site.webmanifest">
-     <link rel="stylesheet" type="text/css" href="css/pedit_style.css">
-	 <style>
-	.navigation-bar a{
-		font-size: 16px;
-	}
-  
-  </style>
-     <title>Edit</title>
+    <?php include __DIR__ . '/../inc/style.php'; ?>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/pedit_style.css">
+    <style>
+      .navigation-bar a{
+        font-size: 16px;
+      }
+    </style>
+    <title>Edit | P R M S</title>
    </head>
    <body>
-     <div class="top_img"><img src="Resource/land2.png"></div>
-     <div class="navigation-bar" style="text-align: center">
-       <a href="ddashboard.php" >Home</a>
-       <a href="drecords.php">Records </a>
-       <a href="dsearch.php">Search</a>
-       <a href="dinsert.php">Insert</a>
-       <a class='logout' href="logout.php">Logout</a>
-     </div>
+     <?php include('doctor.nav.php') ?>
      <div class='welcome'><h2 class='welcome_mssg'>Contact Information Edit </h2></div>
 
      <div class="wrapper">
        <div class="container">
-         <form class="ci_edit_form" action="doctor_info_edit.php" method="post">
-
-
+         <form class="ci_edit_form" action="/doctor/edit/save" method="post">
             <input type="text" name="ads" placeholder="Enter New Address"><br>
-
-
             <input type="text" name="ctc" placeholder="Enter New Contact Number"><br>
-
-
             <input type="text" name="mail" placeholder="Enter New Email">
-
             <input type="submit" name="info-submit" value="Save">
          </form>
        </div>
      </div>
 
      <?php
-      require "connection.php";
+      require __DIR__ ."../../../app/config/connection.php";
       if(isset($_POST["info-submit"]))
       {
         if (!empty($_POST["ads"]) && !empty($_POST["ctc"]) && !empty($_POST["mail"])) {
@@ -65,7 +46,7 @@
               echo "<p class='alert'>Information Updated Successfully</p>";
             }
             else {
-              header("Location:doctor_info_edit.php?Error");
+              header("Location: /doctor/edit?Error");
             }
           }
       elseif (!empty($_POST["ads"]) && !empty($_POST["ctc"]) && empty($_POST["mail"])) {
@@ -79,7 +60,7 @@
           echo "<p class='alert'>Information Updated Successfully</p>";
         }
         else {
-          header("Location:doctor_info_edit.php?Error");
+          header("Location: /doctor/edit?Error");
         }
       }
     elseif (!empty($_POST["ads"]) && empty($_POST["ctc"]) && !empty($_POST["mail"])) {
@@ -93,7 +74,7 @@
         echo "<p class='alert'>Information Updated Successfully</p>";
       }
       else {
-        header("Location:doctor_info_edit.php?Error");
+        header("Location: /doctor/edit?Error");
       }
     }
     elseif (empty($_POST["ads"]) && !empty($_POST["ctc"]) && !empty($_POST["mail"])) {
@@ -107,7 +88,7 @@
         echo "<p class='alert'>Information Updated Successfully</p>";
       }
       else {
-        header("Location:doctor_info_edit.php?Error");
+        header("Location: /doctor/edit?Error");
       }
     }
     elseif (!empty($_POST["ads"]) && empty($_POST["ctc"]) && empty($_POST["mail"])) {
@@ -121,7 +102,7 @@
         echo "<p class='alert'>Information Updated Successfully</p>";
       }
       else {
-        header("Location:doctor_info_edit.php?Error");
+        header("Location: /doctor/edit?Error");
       }
     }
     elseif (empty($_POST["ads"]) && !empty($_POST["ctc"]) && empty($_POST["mail"])) {
@@ -135,7 +116,7 @@
         echo "<p class='alert'>Information Updated Successfully</p>";
       }
       else {
-        header("Location:doctor_info_edit.php?Error");
+        header("Location: /doctor/edit?Error");
       }
     }
 
@@ -150,7 +131,7 @@
           echo "<p class='alert'>Information Updated Successfully</p>";
         }
         else {
-          header("Location:doctor_info_edit.php?Error");
+          header("Location: /doctor/edit?Error");
         }
       }
 

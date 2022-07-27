@@ -10,7 +10,6 @@
 <html lang="en" dir="ltr">
   <head>
   <?php include __DIR__ . '/../inc/style.php'; ?>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/dlogin_style.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/drecords_style.css">
   <style>
     .navigation-bar a{

@@ -98,6 +98,12 @@ switch ($request) {
     case '/doctor/insert':
         require __DIR__ . '/../../views/doctor/dinsert.php';
         break;
+    case '/doctor/edit':
+        require __DIR__ . '/../../views/doctor/doctor_info_edit.php';
+        break;
+    case '/doctor/resetpassword':
+        require __DIR__ . '/../../views/doctor/d_res_pass.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/../../views/errors/404.php';
