@@ -137,7 +137,7 @@ if (!$_SESSION["userID"])
     }
   }
   ?>
-  <div class="footer"></div>
+  <div class="footer"></div> 
 </body>
 
 </html>
