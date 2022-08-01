@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION["userID"])
-  header("Location: /patient/login")
+  header("Location: /staff/login")
 ?>
 
 <!DOCTYPE html>
@@ -14,24 +14,17 @@ if (!$_SESSION["userID"])
 </head>
 
 <body>
-  <?php include('patient.nav.php'); ?>
+  <?php include('staff.nav.php'); ?>
   <div class='welcome'>
     <h2 class='welcome_mssg'>Contact Information Edit </h2>
   </div>
 
   <div class="wrapper">
     <div class="container">
-      <form class="ci_edit_form" action="/patient/edit" method="post">
-
-
+      <form class="ci_edit_form" action="/staff/edit" method="post">
         <input type="text" name="ads" placeholder="Enter New Address"><br>
-
-
         <input type="text" name="ctc" placeholder="Enter New Contact Number"><br>
-
-
         <input type="text" name="mail" placeholder="Enter New Email">
-
         <input type="submit" name="info-submit" value="Save">
       </form>
     </div>
@@ -46,88 +39,88 @@ if (!$_SESSION["userID"])
       $ctc = $_POST["ctc"];
       $mail = $_POST["mail"];
 
-      $sql = "UPDATE patient SET Address = '$ads', Contact_No = '$ctc', Email = '$mail' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET Address = '$ads', Contact_No = '$ctc', Email = '$mail' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location: /patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     } elseif (!empty($_POST["ads"]) && !empty($_POST["ctc"]) && empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
       $ads = $_POST["ads"];
       $ctc = $_POST["ctc"];
 
-      $sql = "UPDATE patient SET Address = '$ads', Contact_No = '$ctc' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET Address = '$ads', Contact_No = '$ctc' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location:/patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     } elseif (!empty($_POST["ads"]) && empty($_POST["ctc"]) && !empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
       $ads = $_POST["ads"];
       $mail = $_POST["mail"];
 
-      $sql = "UPDATE patient SET Address = '$ads', Email = '$mail' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET Address = '$ads', Email = '$mail' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location:/patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     } elseif (empty($_POST["ads"]) && !empty($_POST["ctc"]) && !empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
       $ctc = $_POST["ctc"];
       $mail = $_POST["mail"];
 
-      $sql = "UPDATE patient SET Contact_No = '$ctc', Email = '$mail' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET Contact_No = '$ctc', Email = '$mail' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location:/patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     } elseif (!empty($_POST["ads"]) && empty($_POST["ctc"]) && empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
       $ads = $_POST["ads"];
 
-      $sql = "UPDATE patient SET Address = '$ads' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET Address = '$ads' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location:/patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     } elseif (empty($_POST["ads"]) && !empty($_POST["ctc"]) && empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
       $ctc = $_POST["ctc"];
 
-      $sql = "UPDATE patient SET  Contact_No = '$ctc' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET  Contact_No = '$ctc' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location:/patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     } elseif (empty($_POST["ads"]) && empty($_POST["ctc"]) && !empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
       $mail = $_POST["mail"];
 
-      $sql = "UPDATE patient SET  Email = '$mail' WHERE patient.SSN = '$uid'";
+      $sql = "UPDATE medical_staff SET  Email = '$mail' WHERE SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
 
       if ($is_updated) {
         echo "<p class='alert'>Information Updated Successfully</p>";
       } else {
-        header("Location:/patient/edit?Error");
+        header("Location: /staff/edit?Error");
       }
     }
   }

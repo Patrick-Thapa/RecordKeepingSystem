@@ -2,7 +2,7 @@
 session_start();
 if (!$_SESSION["userID"]) {
   header("Location: /admin/login");
-} 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,10 +17,11 @@ if (!$_SESSION["userID"]) {
   <div class="">
     <div class="top_img"><img src="../../assets/images/land2.png"></div>
     <?php include('admin.nav.php') ?>
-    <div class="container">
-      <h1 class="text-center">Admin Dashboard</h1>
+    <div class="wrapper">
+      <div class="container text-center">
+        <p>Admin Dashboard</p>
+      </div>
     </div>
-  </div>
 </body>
 
 </html>

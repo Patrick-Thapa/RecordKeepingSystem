@@ -3,6 +3,8 @@
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
+
+        // Main
     case '/':
     case '':
     case '/index.php':
@@ -13,10 +15,12 @@ switch ($request) {
         require __DIR__ . '/../../views/about.php';
         exit();
         break;
-    case '':
-        require __DIR__ . '/../../views/welcome.php';
+    case '/join':
+        require __DIR__ . '/../../views/join.php';
         exit();
         break;
+
+        // Patient
     case '/patient':
         require __DIR__ . '/../../views/patient/pdashboard.php';
         exit();
@@ -29,6 +33,32 @@ switch ($request) {
         require __DIR__ . '/../../views/patient/patient.login.php';
         exit();
         break;
+    case '/patient/login?error=nouser':
+        require __DIR__ . '/../../views/patient/patient.login.php';
+        exit();
+        break;
+    case '/patient/login?error=wrongpass':
+        require __DIR__ . '/../../views/patient/patient.login.php';
+        exit();
+        break;
+    case '/patient/records':
+        require __DIR__ . '/../../views/patient/precords.php';
+        exit();
+        break;
+    case '/patient/search':
+        require __DIR__ . '/../../views/patient/psearch.php';
+        exit();
+        break;
+    case '/patient/edit':
+        require __DIR__ . '/../../views/patient/patient_info_edit.php';
+        exit();
+        break;
+    case '/patient/resetpassword':
+        require __DIR__ . '/../../views/patient/p_res_pass.php';
+        exit();
+        break;
+
+        // Admin
     case '/admin':
         require __DIR__ . '/../../views/admin/admin_panel.php';
         exit();
@@ -38,6 +68,10 @@ switch ($request) {
         exit();
         break;
     case '/admin/login':
+        require __DIR__ . '/../../views/admin/admin.login.php';
+        exit();
+        break;
+    case '/admin/login?error=nouser':
         require __DIR__ . '/../../views/admin/admin.login.php';
         exit();
         break;
@@ -80,7 +114,17 @@ switch ($request) {
         require __DIR__ . '/../config/logout.php';
         exit();
         break;
+
+        // Doctor
     case '/doctor/login':
+        require __DIR__ . '/../../views/doctor/doctor.login.php';
+        exit();
+        break;
+    case '/doctor/login?error=nouser':
+        require __DIR__ . '/../../views/doctor/doctor.login.php';
+        exit();
+        break;
+    case '/doctor/login?error=wrongpass':
         require __DIR__ . '/../../views/doctor/doctor.login.php';
         exit();
         break;
@@ -105,6 +149,49 @@ switch ($request) {
     case '/doctor/resetpassword':
         require __DIR__ . '/../../views/doctor/d_res_pass.php';
         break;
+
+        // Staff
+    case '/staff/login':
+        require __DIR__ . '/../../views/staff/staff.login.php';
+        exit();
+        break;
+    case '/staff/login?error=nouser':
+        require __DIR__ . '/../../views/staff/staff.login.php';
+        exit();
+        break;
+    case '/staff/login?error=wrongpass':
+        require __DIR__ . '/../../views/staff/staff.login.php';
+        exit();
+        break;
+    case '/staff/loginprocess':
+        require __DIR__ . '/../../views/staff/staff_login.process.php';
+        exit();
+        break;
+    case '/staff':
+        require __DIR__ . '/../../views/staff/sdashboard.php';
+        exit();
+        break;
+    case '/staff/records':
+        require __DIR__ . '/../../views/staff/srecords.php';
+        exit();
+        break;
+    case '/staff/insert':
+        require __DIR__ . '/../../views/staff/sinsert.php';
+        exit();
+        break;
+    case '/staff/insert/connection':
+        require __DIR__ . '/../../views/staff/sinsert_con.php';
+        exit();
+        break;
+    case '/staff/edit':
+        require __DIR__ . '/../../views/staff/staff_info_edit.php';
+        exit();
+        break;
+    case '/staff/resetpassword':
+        require __DIR__ . '/../../views/staff/s_res_pass.php';
+        exit();
+        break;
+
     default:
         http_response_code(404);
         require __DIR__ . '/../../views/errors/404.php';

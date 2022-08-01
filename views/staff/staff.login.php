@@ -1,24 +1,23 @@
 <?php
 session_start();
-if (isset($_SESSION["userID"]) && $_SESSION["uc"] == "1") {
-  header("Location: /patient");
+if (isset($_SESSION["userID"]) && $_SESSION["uc"] == "3") {
+  header("Location: /staff");
 }
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="./assets/css/hsstyle.css">
   <?php include __DIR__ . '../../inc/style.php'; ?>
-  <title>Patient Login | P R M S</title>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/login_style.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/dlogin_style.css">
+  <title> Login | P R M S</title>
 </head>
 
-<body>
+<body style="background-image: url(../../assets/images/H.jpg); background-size: cover;">
   <div class="login_box">
-    <form class="login_form" action="/patient/loginprocess" method="post">
-      <img src="../../assets/images/logo.ECE.png">
-      <h2>Patient Login</h2>
+    <form class="login_form" action="/staff/loginprocess" method="post">
+      <img src="../../assets/images/logo.black.png">
+      <h2>Staff | Sign In </h2>
       <?php
       if (isset($_GET["error"])) {
         if ($_GET["error"] == "emptyfields") {
@@ -34,6 +33,7 @@ if (isset($_SESSION["userID"]) && $_SESSION["uc"] == "1") {
         }
       }
       ?>
+
       <label for="userID">User ID</label>
       <input type="text" name="userID" placeholder="Enter your SSN or NID number or Passport Number">
       <label for="pass">Password</label>
@@ -43,5 +43,4 @@ if (isset($_SESSION["userID"]) && $_SESSION["uc"] == "1") {
   </div>
   </div>
   </div>
-
 </body>

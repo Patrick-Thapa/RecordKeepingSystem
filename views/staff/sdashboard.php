@@ -1,28 +1,27 @@
 <?php
 session_start();
 if (!$_SESSION["userID"]) {
-  header("Location: /patient/login");
+  header("Location: /staff/login");
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <?php include __DIR__ . '../../inc/style.php'; ?>
-  <title>Patient Dashboard | P R M S</title>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/pdash_style.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/ddash_style.css">
+  <title> Dashboard | P R M S</title>
 </head>
 
 <body>
   <?php
-  include('patient.nav.php');
+  include('staff.nav.php');
   require __DIR__ . "../../../app/config/connection.php";
   $uid = $_SESSION["userID"];
-  $sql = "SELECT SSN, F_Name, CONCAT(F_Name,' ',L_Name) AS Full_name, Address, Contact_No, Email, Date_Format(Date_Of_Birth,'%M %D %Y') AS Date_Of_Birth, Gender, DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(Date_Of_Birth, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(Date_Of_Birth, '00-%m-%d')) AS age FROM patient WHERE SSN=?";
+  $sql = "SELECT SSN, F_Name, CONCAT(F_Name,' ',L_Name) AS Full_name, Contact_No, d.Email,h.name, d.Address, Department, Designation FROM medical_staff d, hospital h WHERE d.Hospital_ID=h.ID AND SSN=?";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("Location: /patient?error=sqlerror");
+    header("Location: /saff?error=sqlerror");
   } else {
     mysqli_stmt_bind_param($stmt, "s", $uid);
     mysqli_stmt_execute($stmt);
@@ -34,9 +33,10 @@ if (!$_SESSION["userID"]) {
       $address = $row["Address"];
       $cont = $row["Contact_No"];
       $mail = $row["Email"];
-      $dob = $row["Date_Of_Birth"];
-      $gen = $row["Gender"];
-      $age = $row["age"];
+      $hname = $row["name"];
+      $dep = $row["Department"];
+      $desg = $row["Designation"];
+
       echo "
           <div class='welcome'><h2 class='welcome_mssg'> GREETINGS $fname</h2></div>
 
@@ -46,12 +46,12 @@ if (!$_SESSION["userID"]) {
               <table>
                 <tr><th>FULL NAME</th>
                     <td>$fullname</td></tr>
-                <tr><th>BIRTHDAY</th>
-                   <td>$dob</td></tr>
-                <tr><th>AGE</th>
-                    <td>$age</td></tr>
-                <tr><th>GENDER</th>
-                   <td>$gen</td></tr>
+                <tr><th>HOSPITAL NAME</th>
+                   <td>$hname</td></tr>
+                <tr><th>DEPARTMENT</th>
+                    <td>$dep</td></tr>
+                <tr><th>DESIGNATION</th>
+                   <td>$desg</td></tr>
               </table>
             </div>
           </div>
@@ -67,10 +67,10 @@ if (!$_SESSION["userID"]) {
                 <tr><th>E-MAIL</th>
                    <td>$mail</td></tr>
               </table>
-              <a href='/patient/edit'>Edit</a>
+              <a href='/staff/edit'>Edit</a>
             </div>
           </div>
-          <div class='res_div'><a class='res' href='/patient/resetpassword'>Reset Password</a></div>
+          <div class='res_div'><a class='res' href='/staff/resetpassword'>Reset Password</a></div>
         <div class='footer'></div>
         ";
     }
