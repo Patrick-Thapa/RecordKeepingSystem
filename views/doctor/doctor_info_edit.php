@@ -36,7 +36,7 @@ if (!$_SESSION["userID"])
   </div>
 
   <?php
-  require "connection.php";
+    require __DIR__ ."../../../app/config/connection.php";
   if (isset($_POST["info-submit"])) {
     if (!empty($_POST["ads"]) && !empty($_POST["ctc"]) && !empty($_POST["mail"])) {
       $uid = $_SESSION["userID"];
@@ -50,6 +50,7 @@ if (!$_SESSION["userID"])
       if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         echo "<p class='alert'>Email: Invalid Email</p>";
       }
+      if (!preg_match("/^[0-9]*$/", $ctc) || !filter_var($mail, FILTER_VALIDATE_EMAIL)) exit();
 
       $sql = "UPDATE doctor SET Address = '$ads', Contact_No = '$ctc', Email = '$mail' WHERE doctor.SSN = '$uid'";
       $is_updated = mysqli_query($conn, $sql);
