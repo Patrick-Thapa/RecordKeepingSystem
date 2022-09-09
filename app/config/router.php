@@ -122,6 +122,17 @@ switch ($request) {
         require __DIR__ . '/../../views/admin/aregister_s.php';
         exit();
         break;
+    case '/admin/register?error=wronghid':
+        require __DIR__ . '/../../views/admin/aregister.php';
+        exit();
+        break;
+    case '/admin/register?login=success':
+        require __DIR__ . '/../../views/admin/aregister.php';
+        exit();
+        break;
+
+
+
     case '/logout':
         require __DIR__ . '/../config/logout.php';
         exit();
