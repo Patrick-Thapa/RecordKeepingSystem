@@ -110,6 +110,18 @@ switch ($request) {
         require __DIR__ . '/../../views/admin/aregister_p.php';
         exit();
         break;
+    case '/admin/register/hospital':
+        require __DIR__ . '/../../views/admin/aregister_h.php';
+        exit();
+        break;
+    case '/admin/register/doctor':
+        require __DIR__ . '/../../views/admin/aregister_d.php';
+        exit();
+        break;
+    case '/admin/register/staff':
+        require __DIR__ . '/../../views/admin/aregister_s.php';
+        exit();
+        break;
     case '/logout':
         require __DIR__ . '/../config/logout.php';
         exit();

@@ -1,12 +1,12 @@
 <?php
- session_start();
- if(!$_SESSION["userID"])
- {
-   header("Location: /admin");
- }
- ?>
+session_start();
+if (!$_SESSION["userID"]) {
+  header("Location: /admin");
+}
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
   <?php include __DIR__ . '/../inc/style.php'; ?>
   <link rel="stylesheet" type="text/css" href="../../assets/css/aregister_style.css">
@@ -28,33 +28,28 @@
 
 
   <script>
-  jQuery(function($) {
+    jQuery(function($) {
       $("#dob").datepicker({
-      changeMonth: true,
-      changeYear: true,
-      yearRange:"1920:2020"
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "1920:2020"
+      });
     });
-  });
   </script>
 
   <?php
-  if (isset($_GET["error"]))
-   {
-    if($_GET["error"]=="wronguser")
-    {
+  if (isset($_GET["error"])) {
+    if ($_GET["error"] == "wronguser") {
       echo "<div class='welcome' style='color: #D61A3C'><h2 class='welcome_mssg'> Wrong Patient ID </h2></div>";
-    }
-    elseif ($_GET["error"]=="wronghid") {
+    } elseif ($_GET["error"] == "wronghid") {
       echo "<div class='welcome' style='color: #D61A3C'><h2 class='welcome_mssg'> Wrong Hospital ID </h2></div>";
     }
-  }
-  elseif (isset($_GET["login"])) {
-      if ($_GET["login"]=="success") {
-        echo "<div class='welcome' style='color: #97DC21'><h2 class='welcome_mssg'> Registration Successful </h2></div>";
-      }
+  } elseif (isset($_GET["login"])) {
+    if ($_GET["login"] == "success") {
+      echo "<div class='welcome' style='color: #97DC21'><h2 class='welcome_mssg'> Registration Successful </h2></div>";
     }
-  elseif(!isset($_POST["choice-submit"])){
-      echo "<div class='welcome'><h2 class='welcome_mssg'> Choose a Category</h2></div>
+  } elseif (!isset($_POST["choice-submit"])) {
+    echo "<div class='welcome'><h2 class='welcome_mssg'> Choose a Category</h2></div>
       <div class='choice_form_box'>
         <form class='choice_form' action='/admin/register' method='post'>
           <label for='ch'>Patient</label>
@@ -68,11 +63,9 @@
           <input type='submit' name='choice-submit' value='NEXT'>
         </form>
       </div>";
-    }
-
-    else {
-      if ($_POST["ch"]=="1") {
-        echo "<div class='welcome'><h2 class='welcome_mssg'> Patient Registration Form</h2></div>
+  } else {
+    if ($_POST["ch"] == "1") {
+      echo "<div class='welcome'><h2 class='welcome_mssg'> Patient Registration Form</h2></div>
   <div class='input-form-box'>
     <form class='input-form' action='/admin/register/patient' method='post'>
       <label for='pssn'>Patient ID</label>
@@ -108,17 +101,15 @@
     </form>
 
   </div>";
-      }
-      elseif ($_POST["ch"]=="2") {
-          echo " <div class='welcome'><h2 class='welcome_mssg'> Doctor Registration Form</h2></div>
+    } elseif ($_POST["ch"] == "2") {
+      echo " <div class='welcome'><h2 class='welcome_mssg'> Doctor Registration Form</h2></div>
     <div class='input-form-box'>
-      <form class='input-form' action='aregister_d.php' method='post'>
+      <form class='input-form' action='/admin/register/doctor' method='post'>
         <label for='dssn'>Doctor ID</label>
         <input type='text' name='dssn' placeholder='Enter a valid Doctor ID' required><br>
 
         <label for='fname'>First Name</label>
         <input type='text' name='fname' placeholder='Enter First Name' required><br>
-
 
         <label for='lname'>Last Name</label>
         <input type='text' name='lname' placeholder='Enter Last Name' required><br>
@@ -151,18 +142,15 @@
       </form>
 
     </div>";
-      }
-
-      elseif ($_POST["ch"]=="3") {
-        echo "  <div class='welcome'><h2 class='welcome_mssg'> Staff Registration Form</h2></div>
+    } elseif ($_POST["ch"] == "3") {
+      echo "  <div class='welcome'><h2 class='welcome_mssg'> Staff Registration Form</h2></div>
   <div class='input-form-box'>
-    <form class='input-form' action='aregister_s.php' method='post'>
+    <form class='input-form' action='admin/register/staff' method='post'>
       <label for='sssn'>Staff ID</label>
       <input type='text' name='sssn' placeholder='Enter a valid Staff ID' required><br>
 
       <label for='fname'>First Name</label>
       <input type='text' name='fname' placeholder='Enter First Name' required><br>
-
 
       <label for='lname'>Last Name</label>
       <input type='text' name='lname' placeholder='Enter Last Name' required><br>
@@ -192,12 +180,10 @@
     </form>
 
   </div>";
-      }
-
-    elseif ($_POST["ch"]=="4") {
+    } elseif ($_POST["ch"] == "4") {
       echo "  <div class='welcome'><h2 class='welcome_mssg'> Hospital Registration Form</h2></div>
 <div class='input-form-box'>
-  <form class='input-form' action='aregister_h.php' method='post'>
+  <form class='input-form' action='admin/register/hospital' method='post'>
     <label for='hid'>Hospital ID</label>
     <input type='text' name='hid' placeholder='Enter a Hospital ID' required><br>
 
@@ -215,10 +201,9 @@
 
 </div>";
     }
-
-
-    }
- ?>
+  }
+  ?>
 
 </body>
+
 </html>
