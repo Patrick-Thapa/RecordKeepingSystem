@@ -31,15 +31,15 @@
     $is_inserted=mysqli_query($conn,$sql);
     $is_insertedd=mysqli_query($conn,$sqll);
     if($is_inserted && $is_insertedd){
-      header("Location: admin/register?login=success");
+      header("Location: /admin/register?login=success");
       exit();}
     else
     {
-      header("Location: admin/register?error=wronghid");
+      header("Location: /admin/register?error=wronghid");
       exit();
     }
   }
   else {
-    header("Location: admin/register");
+    header("Location: /admin/register");
     exit();
   }

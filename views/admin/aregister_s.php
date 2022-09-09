@@ -37,6 +37,6 @@ if (isset($_POST["input-submit"])) {
     exit();
   }
 } else {
-  header("Location: admin/register");
+  header("Location: /admin/register");
   exit();
 }
