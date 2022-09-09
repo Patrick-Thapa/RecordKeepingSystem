@@ -28,7 +28,6 @@
       <a href='/admin/login'>Admin Login</a>
       <a href='/patient/login'>Patient Login</a>
       <a href='/doctor/login'>Doctor Login</a>
-      <a href='/staff/login'>Staff Login</a>
     </div>
   </div>
   <a href='/join'>Join </a>
