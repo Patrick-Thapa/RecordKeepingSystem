@@ -145,7 +145,7 @@ if (!$_SESSION["userID"]) {
     } elseif ($_POST["ch"] == "3") {
       echo "  <div class='welcome'><h2 class='welcome_mssg'> Staff Registration Form</h2></div>
   <div class='input-form-box'>
-    <form class='input-form' action='admin/register/staff' method='post'>
+    <form class='input-form' action='/admin/register/staff' method='post'>
       <label for='sssn'>Staff ID</label>
       <input type='text' name='sssn' placeholder='Enter a valid Staff ID' required><br>
 
@@ -183,7 +183,7 @@ if (!$_SESSION["userID"]) {
     } elseif ($_POST["ch"] == "4") {
       echo "  <div class='welcome'><h2 class='welcome_mssg'> Hospital Registration Form</h2></div>
 <div class='input-form-box'>
-  <form class='input-form' action='admin/register/hospital' method='post'>
+  <form class='input-form' action='/admin/register/hospital' method='post'>
     <label for='hid'>Hospital ID</label>
     <input type='text' name='hid' placeholder='Enter a Hospital ID' required><br>
 
