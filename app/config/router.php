@@ -130,9 +130,6 @@ switch ($request) {
         require __DIR__ . '/../../views/admin/aregister.php';
         exit();
         break;
-
-
-
     case '/logout':
         require __DIR__ . '/../config/logout.php';
         exit();
@@ -163,8 +160,23 @@ switch ($request) {
     case '/doctor/search':
         require __DIR__ . '/../../views/doctor/dsearch.php';
         break;
+    case '/doctor/insert?login=success':
+        require __DIR__ . '/../../views/doctor/dinsert.php';
+        break;
+    case '/doctor/insert?error=wronguser':
+        require __DIR__ . '/../../views/doctor/dinsert.php';
+        break;
     case '/doctor/insert':
         require __DIR__ . '/../../views/doctor/dinsert.php';
+        break;
+    case '/doctor/insert/con':
+        require __DIR__ . '/../../views/doctor/dinsert_con.php';
+        break;
+    case '/doctor/insert/diag':
+        require __DIR__ . '/../../views/doctor/dinsert_diag.php';
+        break;
+    case '/doctor/insert/sur':
+        require __DIR__ . '/../../views/doctor/dinsert_sur.php';
         break;
     case '/doctor/edit':
         require __DIR__ . '/../../views/doctor/doctor_info_edit.php';

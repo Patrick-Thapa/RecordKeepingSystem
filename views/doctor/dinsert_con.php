@@ -1,10 +1,10 @@
 <?php
-  require 'connection.php';
+require __DIR__ . "../../../app/config/connection.php";
 
   session_start();
   if(!isset($_SESSION["userID"]))
   {
-    header("Location:doctor.login.php");
+    header("Location: /doctor/login");
   }
 
   if (isset($_POST["input-submit"])) {
@@ -28,16 +28,16 @@
           '$treat', '$meds','$alg')";
     $is_inserted=mysqli_query($conn,$sql);
     if($is_inserted){
-      header("Location:dinsert.php?login=success");
+      header("Location: /doctor/insert?login=success");
       exit();}
     else
     {
-      header("Location:dinsert.php?error=wronguser");
+      header("Location: /doctor/insert?error=wronguser");
       exit();
     }
   }
   else {
-    header("Location:dinsert.php");
+    header("Location: /doctor/insert");
     exit();
   }
 
