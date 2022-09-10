@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center"> 404 Error | Birsya Thiye Ali Ali Kura Haru Maya le Garda.🥹 </h1>
+        <h1 class="text-center"> 404 Error </h1>
     </div>
 </body>
 

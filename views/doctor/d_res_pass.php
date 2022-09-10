@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION["userID"])
-  header("Location:doctor.login.php")
+  header("Location: /doctor/login")
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ if (!$_SESSION["userID"])
           if ($is_updated) {
             echo "<p class='alert'>Password Updated Successfully</p>";
           } else {
-            header("Location:d_res_pass.php?Error");
+            header("Location: /doctor/resetpassword?Error");
             exit();
           }
         } else {
